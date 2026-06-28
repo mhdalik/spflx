@@ -65,8 +65,8 @@ class UserController extends Controller
             content: new OA\JsonContent(
                 required: ["email", "password"],
                 properties: [
-                    new OA\Property(property: "email", type: "string", format: "email", maxLength: 255, example: "john@example.com"),
-                    new OA\Property(property: "password", type: "string", minLength: 6, example: "password123")
+                    new OA\Property(property: "email", type: "string", format: "email", maxLength: 255, example: "demo1@demo1.com"),
+                    new OA\Property(property: "password", type: "string", minLength: 6, example: "demo1@demo1.com")
                 ]
             )
         ),

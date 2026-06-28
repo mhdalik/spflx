@@ -487,7 +487,7 @@
                                     "email": {
                                         "type": "string",
                                         "format": "email",
-                                        "example": "john@example.com",
+                                        "example": "demo1@demo1.com",
                                         "maxLength": 200
                                     },
                                     "password": {
@@ -533,7 +533,7 @@
                     "Authentication"
                 ],
                 "summary": "Login a user",
-                "description": "Logs in an existing user and returns a Sanctum authentication token. Note: The API returns a 400 status code for both success and credential failure.",
+                "description": "Logs in an existing user and returns a Sanctum authentication token.",
                 "operationId": "0fc9610184083ac6dddab2c63139225a",
                 "requestBody": {
                     "required": true,
@@ -548,12 +548,12 @@
                                     "email": {
                                         "type": "string",
                                         "format": "email",
-                                        "example": "john@example.com",
+                                        "example": "demo1@demo1.com",
                                         "maxLength": 255
                                     },
                                     "password": {
                                         "type": "string",
-                                        "example": "password123",
+                                        "example": "demo1@demo1.com",
                                         "minLength": 6
                                     }
                                 },
@@ -563,40 +563,41 @@
                     }
                 },
                 "responses": {
-                    "400": {
-                        "description": "Login Response (Check structure for success vs error)",
+                    "200": {
+                        "description": "Login success",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "anyOf": [
-                                        {
-                                            "title": "Login Success",
-                                            "properties": {
-                                                "message": {
-                                                    "type": "string",
-                                                    "example": "Login success"
-                                                },
-                                                "user": {
-                                                    "$ref": "#/components/schemas/User"
-                                                },
-                                                "token": {
-                                                    "type": "string",
-                                                    "example": "1|abcdef123456..."
-                                                }
-                                            },
-                                            "type": "object"
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Login success"
                                         },
-                                        {
-                                            "title": "Invalid Credentials",
-                                            "properties": {
-                                                "message": {
-                                                    "type": "string",
-                                                    "example": "Invalid credentials"
-                                                }
-                                            },
-                                            "type": "object"
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "1|abcdef123456..."
                                         }
-                                    ]
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid credentials"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }
@@ -674,7 +675,7 @@
                     "email": {
                         "type": "string",
                         "format": "email",
-                        "example": "john@example.com"
+                        "example": "demo1@demo1.com"
                     },
                     "created_at": {
                         "type": "string",
