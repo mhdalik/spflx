@@ -10,12 +10,16 @@ use OpenApi\Attributes as OA;
     description: "API Documentation for the Task management application. Protect endpoints by authenticating using Sanctum."
 )]
 #[OA\Server(
-    url: "/",
-    description: "Relative URL"
+    url: "https://spflx.nalikeram.in",
+    description: "Demo Server"
 )]
 #[OA\Server(
     url: "http://localhost:8000",
     description: "Local development server"
+)]
+#[OA\Server(
+    url: "/",
+    description: "Relative URL"
 )]
 #[OA\SecurityScheme(
     securityScheme: "sanctum",

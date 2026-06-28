@@ -1,19 +1,54 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Management API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A minimal task management REST API built with Laravel 13, Sanctum token authentication, and interactive Swagger/OpenAPI documentation.
 
-## Simple Portal for Task Management System
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## **Live Demo & API Documentation:** [https://spflx.nalikeram.in/api/documentation](https://spflx.nalikeram.in/api/documentation)
 
 ## Requirements
 
--         "php": "^8.3"
--         "laravel/framework": "^13.8"
--   [Live Demo:](https://laravel.com/docs/routing).
+-   PHP ^8.3 (tested on PHP 8.5)
+-   Composer
 
+## Setup & Installation
+
+You can get the application up and running in a few steps.
+
+1. **Clone the project and enter the directory:**
+
+    ```bash
+    git clone https://github.com/mhdalik/spflx
+    cd spflx
+    ```
+
+2. **Run automatic setup:**
+   The project has a composer script to automate the setup process (dependencies install, environment config, key generation, database migration, and frontend build):
+
+    ```bash
+    composer setup
+    ```
+
+    _Alternatively, you can run these steps manually:_
+
+    ```bash
+    composer install
+    cp .env.example .env
+    php artisan key:generate
+    touch database/database.sqlite
+    php artisan migrate --seed
+    ```
+
+3. **Start the local server:**
+    ```bash
+    php artisan serve
+    ```
+    By default, the server will start at `http://localhost:8000`.
+
+## API Documentation (Swagger)
+
+This API includes interactive Swagger UI documentation generated from OpenAPI annotations.
+
+-   **Documentation URL:** `http://localhost:8000/api/documentation`
+-   **Regenerate Documentation:** If you add or modify endpoints, regenerate the Swagger specifications by running:
+    ```bash
+    php artisan l5-swagger:generate
+    ```

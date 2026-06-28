@@ -1,11 +1,15 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Spaceflex API",
-        "description": "API Documentation for the Spaceflex application. Protect endpoints by authenticating using Sanctum.",
+        "title": "Task management application API",
+        "description": "API Documentation for the Task management application. Protect endpoints by authenticating using Sanctum.",
         "version": "1.0.0"
     },
     "servers": [
+        {
+            "url": "https://spflx.nalikeram.in",
+            "description": "Demo Server"
+        },
         {
             "url": "http://localhost:8000",
             "description": "Local development server"
