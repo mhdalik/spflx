@@ -18,6 +18,8 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
+    protected $guarded = []; // set all attributes as mass assignable
+
     /**
      * Get the attributes that should be cast.
      *
