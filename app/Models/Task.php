@@ -11,4 +11,10 @@ class Task extends Model
     use HasFactory;
 
     protected $guarded = []; // set all attributes as mass assignable
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
