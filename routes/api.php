@@ -11,4 +11,4 @@ Route::post('login', [UserController::class, 'login'])->name('register');
 
 
 // shortcut for creating all the CRUD api routes
-Route::apiResource('tasks', TaskController::class);
+Route::apiResource('tasks', TaskController::class)->middleware('auth:sanctum');
