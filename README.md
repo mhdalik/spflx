@@ -4,6 +4,16 @@ A minimal task management REST API built with Laravel 13, Sanctum token authenti
 
 ## **Live Demo & API Documentation:** [https://spflx.nalikeram.in/api/documentation](https://spflx.nalikeram.in/api/documentation)
 
+### Demo User Credentials
+
+You can use the following seeded accounts to test the authenticated endpoints:
+* **User 1:**
+  - Email: `demo1@demo1.com`
+  - Password: `demo1@demo1.com`
+* **User 2:**
+  - Email: `demo2@demo2.com`
+  - Password: `demo2@demo2.com`
+
 ## Requirements
 
 -   PHP ^8.3 (tested on PHP 8.5)

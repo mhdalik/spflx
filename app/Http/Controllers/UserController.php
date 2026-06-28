@@ -58,7 +58,7 @@ class UserController extends Controller
     #[OA\Post(
         path: "/api/login",
         summary: "Login a user",
-        description: "Logs in an existing user and returns a Sanctum authentication token. Note: The API returns a 400 status code for both success and credential failure.",
+        description: "Logs in an existing user and returns a Sanctum authentication token.",
         tags: ["Authentication"],
         requestBody: new OA\RequestBody(
             required: true,
@@ -72,24 +72,22 @@ class UserController extends Controller
         ),
         responses: [
             new OA\Response(
-                response: 400,
-                description: "Login Response (Check structure for success vs error)",
+                response: 200,
+                description: "Login success",
                 content: new OA\JsonContent(
-                    anyOf: [
-                        new OA\Schema(
-                            title: "Login Success",
-                            properties: [
-                                new OA\Property(property: "message", type: "string", example: "Login success"),
-                                new OA\Property(property: "user", ref: "#/components/schemas/User"),
-                                new OA\Property(property: "token", type: "string", example: "1|abcdef123456...")
-                            ]
-                        ),
-                        new OA\Schema(
-                            title: "Invalid Credentials",
-                            properties: [
-                                new OA\Property(property: "message", type: "string", example: "Invalid credentials")
-                            ]
-                        )
+                    properties: [
+                        new OA\Property(property: "message", type: "string", example: "Login success"),
+                        new OA\Property(property: "user", ref: "#/components/schemas/User"),
+                        new OA\Property(property: "token", type: "string", example: "1|abcdef123456...")
+                    ]
+                )
+            ),
+            new OA\Response(
+                response: 400,
+                description: "Invalid credentials",
+                content: new OA\JsonContent(
+                    properties: [
+                        new OA\Property(property: "message", type: "string", example: "Invalid credentials")
                     ]
                 )
             ),
@@ -118,6 +116,6 @@ class UserController extends Controller
             'message' => 'Login success',
             'user' => $user,
             'token' => $token
-        ], 400);
+        ], 200);
     }
 }
