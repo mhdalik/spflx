@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Services\LogService;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -31,6 +32,8 @@ class TaskController extends Controller
 
         $task = Task::create($validated);
 
+        LogService::log('Task created');
+
         return response()->json(['message' => 'Task created successfully', 'task' => $task], 201);
     }
 
@@ -58,6 +61,8 @@ class TaskController extends Controller
 
         $task->update($validated);
 
+        LogService::log('Task updated');
+
         return response()->json(['message' => 'Task updated successfully', 'task' => $task]);
     }
 
@@ -68,6 +73,8 @@ class TaskController extends Controller
         }
 
         $task->delete();
+
+        LogService::log('Task deleted');
 
         return response()->json(['message' => 'Task deleted successfully']);
     }
