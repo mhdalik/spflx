@@ -20,7 +20,7 @@ class TaskFactory extends Factory
     {
         return [
             'title' => fake()->sentence(3),
-            'description' => fake()->paragraph(),
+            'description' => fake()->paragraph(1),
             'status' => fake()->randomElement(['Pending', 'In Progress', 'Completed']),
             'due_date' => fake()->dateTimeBetween('-1 month', '+1 month')->format('Y-m-d'), // random date within last and next month
             // 'user_id' => User::factory(), // Create a new user for each task
